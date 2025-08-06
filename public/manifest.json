@@ -1,0 +1,54 @@
+{
+  "short_name": "AI Company",
+  "name": "AI Company - AI & Technology Solutions Provider",
+  "description": "Leading provider of AI, Machine Learning, and Blockchain solutions for businesses",
+  "icons": [
+    {
+      "src": "logo1.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo1.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo1.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo1.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#4A90E2",
+  "background_color": "#ffffff",
+  "prefer_related_applications": false,
+  "categories": ["business", "technology", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Our Services",
+      "url": "/services",
+      "description": "View our AI and technology services"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact",
+      "description": "Get in touch with our team"
+    }
+  ],
+  "lang": "en",
+  "dir": "ltr",
+  "related_applications": []
+}
