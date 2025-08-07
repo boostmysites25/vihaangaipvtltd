@@ -155,7 +155,7 @@ export const companyDetails = {
   logo: logoImg,
   phone: "+919347568452",
   location: "Uptown Cyberabad Building, 100ft Rd, Madhapur, Hi-Tech City, Hyderabad, Telangana",
-  email: "info@vihaangai.com",
+  email: "contactus@vihaangai.com",
 };
 
 export const landingPageNavLinks = [
@@ -582,12 +582,12 @@ export const industriesCompanyServe = [
 
 // portfolio images (web development)
 export const webPortfolio = [
-  {
-    id: 1,
-    img: require('../assets/images/portfolio/web-development/5ghomes.webp'),
-    title: "5g Homes",
-    link: "https://5ghighspeedinternet.co",
-  },
+  // {
+  //   id: 1,
+  //   img: require('../assets/images/portfolio/web-development/5ghomes.webp'),
+  //   title: "5g Homes",
+  //   link: "https://5ghighspeedinternet.co",
+  // },
   {
     id: 2,
     img: require('../assets/images/portfolio/web-development/cold-creekcap.webp'),
