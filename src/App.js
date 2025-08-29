@@ -8,7 +8,7 @@ import { Toaster } from "react-hot-toast";
 import SpinnerContextProvider, {
   LoadingSpinnerContext,
 } from "./components/SpinnerContext";
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import ErrorBoundary from "./components/ErrorBoundary";
 
@@ -41,74 +41,13 @@ const DataAnalyticsBusiness = lazyLoad(() => import("./pages/Website/DataAnalyti
 const IoTDevelopment = lazyLoad(() => import("./pages/Website/IoTDevelopment"));
 const GameDevelopment = lazyLoad(() => import("./pages/Website/GameDevelopment"));
 
-// Optimized AOS initialization
 AOS.init({
   once: true,
   duration: 500,
   offset: -150,
-  disable: 'mobile', // Disable on mobile for better performance
-  throttleDelay: 99, // Throttle scroll events
 });
 
 function App() {
-  useEffect(() => {
-    // Initialize performance optimizations safely
-    const initPerformanceOptimizations = () => {
-      // Optimize CSS animations
-      const style = document.createElement('style');
-      style.textContent = `
-        .optimized-animation {
-          will-change: transform, opacity;
-          transform: translateZ(0);
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-          *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      `;
-      document.head.appendChild(style);
-      
-      // Lazy load images
-      if ('IntersectionObserver' in window) {
-        const images = document.querySelectorAll('img[data-src]');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const img = entry.target;
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-              imageObserver.unobserve(img);
-            }
-          });
-        });
-        images.forEach(img => imageObserver.observe(img));
-      }
-      
-      // Preload critical resources
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          const criticalCSS = document.createElement('link');
-          criticalCSS.rel = 'preload';
-          criticalCSS.href = '/static/css/main.css';
-          criticalCSS.as = 'style';
-          document.head.appendChild(criticalCSS);
-          
-          const fontPreload = document.createElement('link');
-          fontPreload.rel = 'preload';
-          fontPreload.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
-          fontPreload.as = 'style';
-          document.head.appendChild(fontPreload);
-        });
-      }
-    };
-    
-    initPerformanceOptimizations();
-  }, []);
-
   return (
     <ErrorBoundary>
       <SpinnerContextProvider>
@@ -124,7 +63,6 @@ function App() {
                   background: "#010C2A",
                   color: "#ffffff",
                 },
-                duration: 4000,
               }}
             />
           <Routes>
