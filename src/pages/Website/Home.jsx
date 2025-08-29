@@ -1,6 +1,6 @@
 import React, { useState, Suspense, useMemo } from "react";
 import { Helmet } from "react-helmet";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import OptimizedImage from "../../components/OptimizedImage";
 import Experience from "../../components/Experience";
 import Testimonials from "../../components/Testimonials";
 import AssociatedWith from "../../components/AssociatedWith";
@@ -17,7 +17,6 @@ import whoWeAre from "../../assets/images/who-we-are.webp";
 import ServiceItemCard from "../../components/Website/ServiceItemCard";
 import { Link } from "react-router-dom";
 import WorkFlow from "../../components/WorkFlow";
-import OptimizedImage from "../../components/OptimizedImage";
 
 // Lazy load components for better performance
 const Header = React.lazy(() => import("../../components/Website/Header"));
@@ -147,7 +146,9 @@ const Home = () => {
             <div className="blurred-blue left-[-10%] top-[-10%]"></div>
             <div className="wrapper py-10 flex flex-col items-center gap-5 z-10">
               <div data-aos="fade-up" className="flex items-center gap-3">
-                <LazyLoadImage
+                <OptimizedImage
+                  width="3rem"
+                  height="3rem"
                   src={line}
                   alt="Decorative line"
                   className="w-[3rem]"
@@ -235,7 +236,9 @@ const Home = () => {
               aria-label="About Company"
             >
               <div data-aos="fade-up" className="flex items-center gap-3">
-                <LazyLoadImage
+                <OptimizedImage
+                  width="3rem"
+                  height="3rem"
                   src={line}
                   alt="Decorative line"
                   className="w-[3rem]"
@@ -246,10 +249,10 @@ const Home = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-10 md:mb-[7rem]">
                 <div className="relative" data-aos="fade-right">
-                  <LazyLoadImage
-                    src={whoWeAre}
+                  <OptimizedImage
                     width="500"
                     height="400"
+                    src={whoWeAre}
                     alt="VIHAANG AI GLOBAL SERVICES PVT LTD company overview"
                     className="rounded-lg h-[20rem] sm:h-full aspect-square w-full object-cover object-right"
                     effect="blur"

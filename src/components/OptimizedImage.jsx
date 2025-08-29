@@ -1,6 +1,31 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { optimizeImage, isMobile, isSlowConnection, LAZY_LOAD_THRESHOLD } from '../utils/performance';
+
+// Simple utility functions to avoid browser-specific imports
+const isMobile = () => {
+  if (typeof window === 'undefined') return false;
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
+const isSlowConnection = () => {
+  if (typeof window === 'undefined' || !navigator.connection) return false;
+  return navigator.connection.effectiveType === 'slow-2g' || 
+         navigator.connection.effectiveType === '2g' ||
+         navigator.connection.effectiveType === '3g';
+};
+
+const optimizeImage = (src, width = 800, quality = 80) => {
+  // For webp images, return as is
+  if (src.includes('.webp')) {
+    return src;
+  }
+  
+  // For other images, you can implement a CDN transformation here
+  // Example: return `${src}?w=${width}&q=${quality}&format=webp`;
+  return src;
+};
+
+const LAZY_LOAD_THRESHOLD = 100;
 
 const OptimizedImage = ({
   src,
@@ -15,9 +40,8 @@ const OptimizedImage = ({
   placeholder = null,
   ...props
 }) => {
-  const [imageSrc, setImageSrc] = useState('');
+  const [imageSrc, setImageSrc] = useState(src);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [hasError, setHasError] = useState(false);
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -46,7 +70,6 @@ const OptimizedImage = ({
   };
 
   const handleError = () => {
-    setHasError(true);
     // Fallback to original image if optimized version fails
     if (imageSrc !== src) {
       setImageSrc(src);
