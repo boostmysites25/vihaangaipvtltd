@@ -84,6 +84,10 @@ const LeadForm = () => {
                 placeholder="Full Name"
                 {...register("name", {
                   required: "Full name is required",
+                  pattern: {
+                    value: /^[a-zA-Z\s\-']+$/,
+                    message: "Name should only contain letters, spaces, hyphens, and apostrophes",
+                  },
                   validate: (val) => {
                     if (val.trim() !== "") {
                       return true;

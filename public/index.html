@@ -5,18 +5,50 @@
     <link rel="icon" href="%PUBLIC_URL%/123logo123.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, shrink-to-fit=no" />
     <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta
       name="description"
-      content=""
+      content="VIHAANG AI GLOBAL SERVICES PVT LTD - Leading AI & Technology Solutions Provider. Transform your business with cutting-edge AI, Machine Learning, and Blockchain solutions."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/123logo123.svg" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="//unpkg.com" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="%PUBLIC_URL%/123logo123.svg" as="image" type="image/svg+xml" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" />
+    
+    <!-- Load Leaflet CSS with media query for better performance -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'" />
+    
     <title>VIHAANG AI GLOBAL SERVICES PVT LTD</title>
   
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

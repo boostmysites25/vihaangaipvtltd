@@ -7,11 +7,6 @@ import img2 from "../../assets/images/about-us-page-3.png";
 import projectsImg from "../../assets/images/icons/projects.png";
 import clientsImg from "../../assets/images/icons/clients.png";
 import awardsImg from "../../assets/images/icons/awards.png";
-import bgShape from "../../assets/images/bg-shape.png";
-import process1 from "../../assets/images/w-process1.png";
-import process2 from "../../assets/images/w-process2.png";
-import process3 from "../../assets/images/w-process3.png";
-import arrow from "../../assets/images/icons/Arrow.png";
 import SolveITNeeds from "../../components/Website/SolveITNeeds";
 import Footer from "../../components/Footer";
 

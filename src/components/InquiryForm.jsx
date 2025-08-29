@@ -88,7 +88,7 @@ const InquiryForm = () => {
           <form
             onSubmit={handleSubmit(handleFormSubmit)}
             data-aos="fade-up"
-            className="flex flex-col gap-1"
+            className="flex flex-col gap-4"
           >
             <div className="grid sm:grid-cols-2 gap-3">
               <div className="flex flex-col">
@@ -101,6 +101,10 @@ const InquiryForm = () => {
                   placeholder="Full Name"
                   {...register("name", {
                     required: "Full name is required",
+                    pattern: {
+                      value: /^[a-zA-Z\s\-']+$/,
+                      message: "Name should only contain letters, spaces, hyphens, and apostrophes",
+                    },
                     validate: (val) => {
                       if (val.trim() !== "") {
                         return true;
@@ -110,7 +114,7 @@ const InquiryForm = () => {
                     },
                   })}
                 />
-                <small className="error-message">{errors.name?.message}</small>
+                <small className="error-message !text-[.8rem] !leading-tight">{errors.name?.message}</small>
               </div>
               <div className="flex flex-col">
                 <label htmlFor="" className="text-sm ml-1">
@@ -128,7 +132,7 @@ const InquiryForm = () => {
                     },
                   })}
                 />
-                <small className="error-message">{errors.email?.message}</small>
+                <small className="error-message !text-[.8rem] !leading-tight">{errors.email?.message}</small>
               </div>
             </div>
             <div className="grid sm:grid-cols-2 gap-3">
@@ -148,7 +152,7 @@ const InquiryForm = () => {
                     },
                   })}
                 />
-                <small className="error-message">{errors.phone?.message}</small>
+                <small className="error-message !text-[.8rem] !leading-tight">{errors.phone?.message}</small>
               </div>
 
               <div className="flex flex-col">
@@ -170,7 +174,7 @@ const InquiryForm = () => {
                     },
                   })}
                 />
-                <small className="error-message">
+                <small className="error-message !text-[.8rem] !leading-tight">
                   {errors.subject?.message}
                 </small>
               </div>
@@ -195,7 +199,7 @@ const InquiryForm = () => {
                   },
                 })}
               />
-              <small className="error-message">{errors.message?.message}</small>
+              <small className="error-message !text-[.8rem] !leading-tight">{errors.message?.message}</small>
             </div>
             <button
               disabled={isSubmitting}

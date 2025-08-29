@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Header from "../../components/LandingPages/Header";
 import Banner from "../../components/LandingPages/Banner";
 import Services from "../../components/LandingPages/Services";
@@ -14,18 +14,29 @@ import WorkFlow from "../../components/WorkFlow";
 import InquiryForm from "../../components/InquiryForm";
 import Portfolio from "../../components/Portfolio";
 
+// Loading component for Suspense fallback
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-[200px]">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary"></div>
+  </div>
+);
+
 const LandingPage = ({ page }) => {
   return (
     <div className="landing-bg">
       <WhatsAppIcon />
-      <Header />
-      <Banner page={page} />
+      <Suspense fallback={<LoadingFallback />}>
+        <Header />
+        <Banner page={page} />
+      </Suspense>
       <div className="pt-[2rem]">
         <InquiryForm />
       </div>
-      <Services page={page} />
-      <Development page={page} />
-      <Portfolio page={page} />
+      <Suspense fallback={<LoadingFallback />}>
+        <Services page={page} />
+        <Development page={page} />
+        <Portfolio page={page} />
+      </Suspense>
       <div className="wrapper py-[2rem] flex flex-col gap-3">
         <div className="flex flex-col gap-3">
           <h2
@@ -51,6 +62,8 @@ const LandingPage = ({ page }) => {
                 src={item.img}
                 alt={item.title}
                 className="w-full h-full object-cover absolute top-0 left-0 rounded group-hover:scale-110 transition-all duration-300"
+                width="200"
+                height="100"
               />
               <div className="w-full h-full absolute top-0 left-0 bg-white/70 group-hover:bg-black/60 transition-all duration-300"></div>
               <p className="text-center text-[1.3rem] font-medium relative z-10 group-hover:text-white transition-all duration-300">
@@ -63,12 +76,14 @@ const LandingPage = ({ page }) => {
           ))}
         </div>
       </div>
-      <WorkFlow page={page} />
-      <Experience />
-      <Testimonials />
-      <LeadForm />
-      <AssociatedWith />
-      <Footer />
+      <Suspense fallback={<LoadingFallback />}>
+        <WorkFlow page={page} />
+        <Experience />
+        <Testimonials />
+        <LeadForm />
+        <AssociatedWith />
+        <Footer />
+      </Suspense>
     </div>
   );
 };

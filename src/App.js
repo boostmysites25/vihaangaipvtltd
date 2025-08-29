@@ -10,61 +10,63 @@ import SpinnerContextProvider, {
 } from "./components/SpinnerContext";
 import React, { Suspense } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner";
+import ErrorBoundary from "./components/ErrorBoundary";
+import PerformanceMonitor from "./components/PerformanceMonitor";
 
-const Home = React.lazy(() => import("./pages/Website/Home"));
-const AboutUs = React.lazy(() => import("./pages/Website/AboutUs"));
-const OurServices = React.lazy(() => import("./pages/Website/OurServices"));
-const Blogs = React.lazy(() => import("./pages/Website/Blogs"));
-const BlogDetails = React.lazy(() => import("./pages/Website/BlogDetails"));
-const ServicePageLayout = React.lazy(() =>
-  import("./components/Website/ServicePageLayout")
-);
-const AppDevelopment = React.lazy(() =>
-  import("./pages/Website/AppDevelopment")
-);
-const WebDevelopment = React.lazy(() =>
-  import("./pages/Website/WebDevelopment")
-);
-const AIAndMLDevelopment = React.lazy(() =>
-  import("./pages/Website/AIAndMLDevelopment")
-);
-const BlockchainDevelopment = React.lazy(() =>
-  import("./pages/Website/BlockchainDevelopment")
-);
-const CloudComputing = React.lazy(() =>
-  import("./pages/Website/CloudComputing")
-);
-const ContactUs = React.lazy(() => import("./pages/Website/ContactUs"));
-const LandingPage = React.lazy(() => import("./pages/LandingPage/LandingPage"));
-const UIUX = React.lazy(() => import("./pages/Website/UIUX"));
-const ChatbotDevelopment = React.lazy(() => import("./pages/Website/ChatbotDevelopment"));
-const DataAnalyticsBusiness = React.lazy(() => import("./pages/Website/DataAnalyticsBusiness"));
-const IoTDevelopment = React.lazy(() => import("./pages/Website/IoTDevelopment"));
-const GameDevelopment = React.lazy(() => import("./pages/Website/GameDevelopment"));
+// Lazy load components with error handling
+const lazyLoad = (importFunc) => {
+  return React.lazy(() => 
+    importFunc().catch(err => {
+      console.error('Failed to load component:', err);
+      throw err; // Re-throw to be caught by ErrorBoundary
+    })
+  );
+};
+
+const Home = lazyLoad(() => import("./pages/Website/Home"));
+const AboutUs = lazyLoad(() => import("./pages/Website/AboutUs"));
+const OurServices = lazyLoad(() => import("./pages/Website/OurServices"));
+const Blogs = lazyLoad(() => import("./pages/Website/Blogs"));
+const BlogDetails = lazyLoad(() => import("./pages/Website/BlogDetails"));
+const ServicePageLayout = lazyLoad(() => import("./components/Website/ServicePageLayout"));
+const AppDevelopment = lazyLoad(() => import("./pages/Website/AppDevelopment"));
+const WebDevelopment = lazyLoad(() => import("./pages/Website/WebDevelopment"));
+const AIAndMLDevelopment = lazyLoad(() => import("./pages/Website/AIAndMLDevelopment"));
+const BlockchainDevelopment = lazyLoad(() => import("./pages/Website/BlockchainDevelopment"));
+const CloudComputing = lazyLoad(() => import("./pages/Website/CloudComputing"));
+const ContactUs = lazyLoad(() => import("./pages/Website/ContactUs"));
+const LandingPage = lazyLoad(() => import("./pages/LandingPage/LandingPage"));
+const UIUX = lazyLoad(() => import("./pages/Website/UIUX"));
+const ChatbotDevelopment = lazyLoad(() => import("./pages/Website/ChatbotDevelopment"));
+const DataAnalyticsBusiness = lazyLoad(() => import("./pages/Website/DataAnalyticsBusiness"));
+const IoTDevelopment = lazyLoad(() => import("./pages/Website/IoTDevelopment"));
+const GameDevelopment = lazyLoad(() => import("./pages/Website/GameDevelopment"));
 
 AOS.init({
   once: true,
   duration: 500,
-  offset: -50,
+  offset: -150,
 });
 
 function App() {
   return (
-    <SpinnerContextProvider>
-      <Suspense fallback={<LoadingSpinner />}>
-        <NormalizeSlash>
-          <ScrollToTop />
-          <LoadingSpinnerContext />
-          <WhatsAppIcon />
-          <Toaster
-            position="top-bottom"
-            toastOptions={{
-              style: {
-                background: "#010C2A",
-                color: "#ffffff",
-              },
-            }}
-          />
+    <ErrorBoundary>
+      <SpinnerContextProvider>
+        <PerformanceMonitor />
+        <Suspense fallback={<LoadingSpinner />}>
+          <NormalizeSlash>
+            <ScrollToTop />
+            <LoadingSpinnerContext />
+            <WhatsAppIcon />
+            <Toaster
+              position="top-bottom"
+              toastOptions={{
+                style: {
+                  background: "#010C2A",
+                  color: "#ffffff",
+                },
+              }}
+            />
           <Routes>
             <Route path="*" element={<Navigate to="/" />} />
             <Route path="/" element={<Home />} />
@@ -107,9 +109,10 @@ function App() {
               element={<LandingPage page={"app-development"} />}
             />
           </Routes>
-        </NormalizeSlash>
-      </Suspense>
-    </SpinnerContextProvider>
+          </NormalizeSlash>
+        </Suspense>
+      </SpinnerContextProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { Helmet } from "react-helmet";
-import { LazyLoadImage } from "react-lazy-load-image-component"; // For optimized image loading
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Experience from "../../components/Experience";
 import Testimonials from "../../components/Testimonials";
 import AssociatedWith from "../../components/AssociatedWith";
@@ -21,6 +21,13 @@ import WorkFlow from "../../components/WorkFlow";
 // Lazy load components for better performance
 const Header = React.lazy(() => import("../../components/Website/Header"));
 const Banner = React.lazy(() => import("../../components/Website/Banner"));
+
+// Loading component for Suspense fallback
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-[200px]">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-secondary"></div>
+  </div>
+);
 
 // Schema markup for Local Business
 const localBusinessSchema = {
@@ -44,6 +51,7 @@ const Home = () => {
   const [showAll, setShowAll] = useState(false);
   const firstSix = services.slice(0, 6);
   const remaining = services.slice(6);
+
   return (
     <>
       <Helmet>
@@ -85,6 +93,12 @@ const Home = () => {
         />
         <meta name="twitter:image" content={aboutImg} />
 
+        {/* Preload critical resources */}
+        <link rel="preload" href={aboutImg} as="image" />
+        <link rel="preload" href={whoWeAre} as="image" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
         {/* Schema Markup */}
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
@@ -92,8 +106,10 @@ const Home = () => {
       </Helmet>
 
       <div className="landing-bg">
-        <Header />
-        <Banner />
+        <Suspense fallback={<LoadingFallback />}>
+          <Header />
+          <Banner />
+        </Suspense>
 
         <main>
           <section
@@ -108,6 +124,8 @@ const Home = () => {
                   src={line}
                   alt="Decorative line"
                   className="w-[3rem]"
+                  effect="blur"
+                  threshold={100}
                 />
                 <h2 className="font-medium text-secondary capitalize">
                   Our Core Expertise
@@ -192,6 +210,8 @@ const Home = () => {
                     src={item.img}
                     alt={`${item.title} industry solutions`}
                     className="w-full h-full object-cover absolute top-0 left-0 rounded group-hover:scale-110 transition-all duration-300"
+                    effect="blur"
+                    threshold={100}
                   />
                   <div className="w-full h-full absolute top-0 left-0 bg-white/70 group-hover:bg-black/60 transition-all duration-300"></div>
                   <h3 className="text-center text-[1.3rem] font-medium relative z-10 group-hover:text-white transition-all duration-300">
@@ -215,6 +235,8 @@ const Home = () => {
                   src={line}
                   alt="Decorative line"
                   className="w-[3rem]"
+                  effect="blur"
+                  threshold={100}
                 />
                 <h2 className="font-medium text-secondary">About Company</h2>
               </div>
@@ -225,7 +247,9 @@ const Home = () => {
                     width="500"
                     height="400"
                     alt="VIHAANG AI GLOBAL SERVICES PVT LTD company overview"
-                    className="rounded-lg h-[20rem] md:h-full md:max-h-[25rem] w-full object-cover object-right"
+                    className="rounded-lg h-[20rem] sm:h-full aspect-square w-full object-cover object-right"
+                    effect="blur"
+                    threshold={100}
                   />
                   <div className="w-full sm:w-fit sm:max-w-[18rem] text-white h-full sm:h-fit absolute md:-bottom-[5rem] bottom-0 left-0 bg-primary/70 sm:bg-primary p-5 rounded-lg">
                     <h3 className="text-5xl font-bold text-white">2+</h3>

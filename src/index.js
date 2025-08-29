@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "react-modern-drawer/dist/index.css";
 import "keen-slider/keen-slider.min.css";
+import { unregister } from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,3 +18,6 @@ root.render(
 );
 
 reportWebVitals();
+
+// Unregister service worker to prevent caching issues
+unregister();
