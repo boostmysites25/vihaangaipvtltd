@@ -8,10 +8,10 @@ import { Toaster } from "react-hot-toast";
 import SpinnerContextProvider, {
   LoadingSpinnerContext,
 } from "./components/SpinnerContext";
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import ErrorBoundary from "./components/ErrorBoundary";
-import PerformanceMonitor from "./components/PerformanceMonitor";
+import { initPerformanceOptimizations } from "./utils/performance";
 
 // Lazy load components with error handling
 const lazyLoad = (importFunc) => {
@@ -42,17 +42,43 @@ const DataAnalyticsBusiness = lazyLoad(() => import("./pages/Website/DataAnalyti
 const IoTDevelopment = lazyLoad(() => import("./pages/Website/IoTDevelopment"));
 const GameDevelopment = lazyLoad(() => import("./pages/Website/GameDevelopment"));
 
+// Optimized AOS initialization
 AOS.init({
   once: true,
   duration: 500,
   offset: -150,
+  disable: 'mobile', // Disable on mobile for better performance
+  throttleDelay: 99, // Throttle scroll events
 });
 
 function App() {
+  useEffect(() => {
+    // Initialize performance optimizations
+    initPerformanceOptimizations();
+    
+    // Preload critical resources
+    const preloadCriticalResources = () => {
+      // Preload critical CSS
+      const criticalCSS = document.createElement('link');
+      criticalCSS.rel = 'preload';
+      criticalCSS.href = '/static/css/main.css';
+      criticalCSS.as = 'style';
+      document.head.appendChild(criticalCSS);
+      
+      // Preload critical fonts
+      const fontPreload = document.createElement('link');
+      fontPreload.rel = 'preload';
+      fontPreload.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+      fontPreload.as = 'style';
+      document.head.appendChild(fontPreload);
+    };
+    
+    preloadCriticalResources();
+  }, []);
+
   return (
     <ErrorBoundary>
       <SpinnerContextProvider>
-        <PerformanceMonitor />
         <Suspense fallback={<LoadingSpinner />}>
           <NormalizeSlash>
             <ScrollToTop />
@@ -65,6 +91,7 @@ function App() {
                   background: "#010C2A",
                   color: "#ffffff",
                 },
+                duration: 4000,
               }}
             />
           <Routes>

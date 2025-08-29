@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useMemo } from "react";
 import { Helmet } from "react-helmet";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Experience from "../../components/Experience";
@@ -17,6 +17,7 @@ import whoWeAre from "../../assets/images/who-we-are.webp";
 import ServiceItemCard from "../../components/Website/ServiceItemCard";
 import { Link } from "react-router-dom";
 import WorkFlow from "../../components/WorkFlow";
+import OptimizedImage from "../../components/OptimizedImage";
 
 // Lazy load components for better performance
 const Header = React.lazy(() => import("../../components/Website/Header"));
@@ -51,6 +52,32 @@ const Home = () => {
   const [showAll, setShowAll] = useState(false);
   const firstSix = services.slice(0, 6);
   const remaining = services.slice(6);
+
+  // Memoized industries data
+  const industriesList = useMemo(() => 
+    industriesCompanyServe.map((item) => (
+      <div
+        key={item.id}
+        data-aos="fade-up"
+        className="p-5 rounded-lg shadow-lg relative group overflow-hidden min-h-[12rem]"
+        aria-labelledby={`industry-${item.id}`}
+      >
+        <OptimizedImage
+          width="200"
+          height="100"
+          src={item.img}
+          alt={`${item.title} industry solutions`}
+          className="w-full h-full object-cover absolute top-0 left-0 rounded group-hover:scale-110 transition-all duration-300"
+        />
+        <div className="w-full h-full absolute top-0 left-0 bg-white/70 group-hover:bg-black/60 transition-all duration-300" aria-hidden="true"></div>
+        <h3 id={`industry-${item.id}`} className="text-center text-[1.3rem] font-medium relative z-10 group-hover:text-white transition-all duration-300">
+          {item.title}
+        </h3>
+        <p className="text-gray-800 text-md mt-2 relative z-10 group-hover:text-white transition-all duration-300">
+          {item.desc}
+        </p>
+      </div>
+    )), []);
 
   return (
     <>
@@ -198,30 +225,7 @@ const Home = () => {
               </p>
             </div>
             <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-7">
-              {industriesCompanyServe.map((item) => (
-                <div
-                  key={item.id}
-                  data-aos="fade-up"
-                  className="p-5 rounded-lg shadow-lg relative group overflow-hidden min-h-[12rem]"
-                >
-                  <LazyLoadImage
-                    width="200"
-                    height="100"
-                    src={item.img}
-                    alt={`${item.title} industry solutions`}
-                    className="w-full h-full object-cover absolute top-0 left-0 rounded group-hover:scale-110 transition-all duration-300"
-                    effect="blur"
-                    threshold={100}
-                  />
-                  <div className="w-full h-full absolute top-0 left-0 bg-white/70 group-hover:bg-black/60 transition-all duration-300"></div>
-                  <h3 className="text-center text-[1.3rem] font-medium relative z-10 group-hover:text-white transition-all duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-800 text-md mt-2 relative z-10 group-hover:text-white transition-all duration-300">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+              {industriesList}
             </div>
 
             <WorkFlow />
