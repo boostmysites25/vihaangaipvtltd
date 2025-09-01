@@ -12,7 +12,7 @@ export const services = [
     keywords: [
       "Full Stack Web Development",
       "Custom Web Applications",
-      "Frontend & Backend Development"
+      "Frontend & Backend Development",
     ],
     link: "/services/web-development",
   },
@@ -26,7 +26,7 @@ export const services = [
     keywords: [
       "Mobile App Development Company",
       "iOS & Android App Development",
-      "Cross-Platform App Developers"
+      "Cross-Platform App Developers",
     ],
     link: "/services/app-development",
   },
@@ -41,7 +41,7 @@ export const services = [
       "AI Development Services",
       "Machine Learning Solutions",
       "Intelligent Automation",
-      "Predictive Analytics"
+      "Predictive Analytics",
     ],
     link: "/services/ai-ml-development",
   },
@@ -56,7 +56,7 @@ export const services = [
       "Blockchain App Development",
       "Smart Contracts",
       "dApp Development",
-      "Web3 Projects"
+      "Web3 Projects",
     ],
     link: "/services/blockchain-solutions",
   },
@@ -71,7 +71,7 @@ export const services = [
       "Cloud Computing Services",
       "Cloud Migration",
       "DevOps Cloud Solutions",
-      "AWS Cloud Architecture"
+      "AWS Cloud Architecture",
     ],
     link: "/services/cloud-computing-services",
   },
@@ -86,7 +86,7 @@ export const services = [
       "UI/UX Design Services",
       "User Experience Design",
       "App Interface Design",
-      "Design Thinking Agency"
+      "Design Thinking Agency",
     ],
     link: "/services/ui-ux",
   },
@@ -101,7 +101,7 @@ export const services = [
       "AI Chatbots",
       "Custom Chatbot Development",
       "Conversational AI",
-      "Automated Customer Support"
+      "Automated Customer Support",
     ],
     link: "/services/chatbot-development",
   },
@@ -116,7 +116,7 @@ export const services = [
       "Data Analytics",
       "Business Intelligence Solutions",
       "Data Visualization",
-      "Power BI & Tableau Experts"
+      "Power BI & Tableau Experts",
     ],
     link: "/services/data-analytics-business",
   },
@@ -130,7 +130,7 @@ export const services = [
     keywords: [
       "IoT Development Company",
       "Smart Device Integration",
-      "Industrial IoT Solutions"
+      "Industrial IoT Solutions",
     ],
     link: "/services/iot-development",
   },
@@ -144,7 +144,7 @@ export const services = [
     keywords: [
       "Game Development Studio",
       "Unity & Unreal Game Developers",
-      "Mobile Game Development"
+      "Mobile Game Development",
     ],
     link: "/services/game-development",
   },
@@ -154,8 +154,12 @@ export const services = [
 export const companyDetails = {
   logo: logoImg,
   phone: "+919347568452",
-  location: "Uptown Cyberabad Building, 100ft Rd, Madhapur, Hi-Tech City, Hyderabad, Telangana",
+  location:
+    "Uptown Cyberabad Building, 100ft Rd, Madhapur, Hi-Tech City, Hyderabad, Telangana",
   email: "contactus@vihaangai.com",
+  facebook: "https://www.facebook.com/share/1HxbBs9XFz/",
+  instagram: "https://www.instagram.com/vihaangai?igsh=MWFpd3hiNmdlYXkzdg==",
+  linkedin: "https://www.linkedin.com/company/vihaang-ai/",
 };
 
 export const landingPageNavLinks = [
@@ -400,113 +404,133 @@ export const testimonials = [
   {
     id: 1,
     service: "UI/UX Design",
-    quote: "Working with their UI/UX team was a game-changer. They took our vision and transformed it into a seamless, intuitive user journey. Our app retention rate improved by 40% post-launch!",
+    quote:
+      "Working with their UI/UX team was a game-changer. They took our vision and transformed it into a seamless, intuitive user journey. Our app retention rate improved by 40% post-launch!",
     client: {
       name: "Ritika Mehra",
       title: "Product Head",
-      company: "HealthTech Startup"
+      company: "HealthTech Startup",
     },
-    keywords: ["UI/UX Design Services", "App Interface Design"]
+    keywords: ["UI/UX Design Services", "App Interface Design"],
   },
   {
     id: 2,
     service: "Mobile App Development",
-    quote: "We needed a robust mobile app for both iOS and Android — and they delivered it perfectly. The app runs smooth, looks beautiful, and our customers love it. It's now a major revenue channel for us.",
+    quote:
+      "We needed a robust mobile app for both iOS and Android — and they delivered it perfectly. The app runs smooth, looks beautiful, and our customers love it. It's now a major revenue channel for us.",
     client: {
       name: "David Lin",
       title: "CTO",
-      company: "Retail eCommerce Brand"
+      company: "Retail eCommerce Brand",
     },
-    keywords: ["Mobile App Development Company", "Cross-Platform App Developers"]
+    keywords: [
+      "Mobile App Development Company",
+      "Cross-Platform App Developers",
+    ],
   },
   {
     id: 3,
     service: "Web Development (Full Stack)",
-    quote: "Their web development team is highly skilled and incredibly responsive. From backend APIs to frontend design, they handled everything. We've scaled 3x since going live!",
+    quote:
+      "Their web development team is highly skilled and incredibly responsive. From backend APIs to frontend design, they handled everything. We've scaled 3x since going live!",
     client: {
       name: "Karan Shetty",
       title: "Co-Founder",
-      company: "B2B SaaS Platform"
+      company: "B2B SaaS Platform",
     },
-    keywords: ["Full Stack Web Development", "Custom Web Application Development"]
+    keywords: [
+      "Full Stack Web Development",
+      "Custom Web Application Development",
+    ],
   },
   {
     id: 4,
     service: "Cloud Computing Services",
-    quote: "Our infrastructure was a mess before we moved to the cloud with them. They helped us migrate to AWS smoothly, reduced our server costs, and improved our uptime significantly.",
+    quote:
+      "Our infrastructure was a mess before we moved to the cloud with them. They helped us migrate to AWS smoothly, reduced our server costs, and improved our uptime significantly.",
     client: {
       name: "Meenal Ghosh",
       title: "Operations Lead",
-      company: "Logistics Company"
+      company: "Logistics Company",
     },
-    keywords: ["Cloud Migration Services", "AWS DevOps", "Cloud Infrastructure Management"]
+    keywords: [
+      "Cloud Migration Services",
+      "AWS DevOps",
+      "Cloud Infrastructure Management",
+    ],
   },
   {
     id: 5,
     service: "AI Development",
-    quote: "We needed AI-powered automation for our internal tools — and this team nailed it. From ideation to deployment, everything was precise, scalable, and secure.",
+    quote:
+      "We needed AI-powered automation for our internal tools — and this team nailed it. From ideation to deployment, everything was precise, scalable, and secure.",
     client: {
       name: "Carlos Rivera",
       title: "Innovation Manager",
-      company: "Enterprise Software Firm"
+      company: "Enterprise Software Firm",
     },
-    keywords: ["AI Development Services", "Custom Machine Learning Models"]
+    keywords: ["AI Development Services", "Custom Machine Learning Models"],
   },
   {
     id: 6,
     service: "Chatbot Development",
-    quote: "They built us a customer support chatbot that cut response time by 80% and improved client satisfaction. It's now handling 70% of our support tickets effortlessly.",
+    quote:
+      "They built us a customer support chatbot that cut response time by 80% and improved client satisfaction. It's now handling 70% of our support tickets effortlessly.",
     client: {
       name: "Ankita Shah",
       title: "Customer Success Manager",
-      company: "Fintech Company"
+      company: "Fintech Company",
     },
-    keywords: ["Chatbot Development Company", "AI Conversational Bots"]
+    keywords: ["Chatbot Development Company", "AI Conversational Bots"],
   },
   {
     id: 7,
     service: "Data Analytics & Business Intelligence",
-    quote: "Their analytics dashboard gave us a new perspective on our sales pipeline. We're now making data-driven decisions daily — and it's showing in our growth numbers.",
+    quote:
+      "Their analytics dashboard gave us a new perspective on our sales pipeline. We're now making data-driven decisions daily — and it's showing in our growth numbers.",
     client: {
       name: "Ben Thompson",
       title: "Director of Sales",
-      company: "Digital Marketing Agency"
+      company: "Digital Marketing Agency",
     },
-    keywords: ["Business Intelligence Services", "Data Analytics Solutions"]
+    keywords: ["Business Intelligence Services", "Data Analytics Solutions"],
   },
   {
     id: 8,
     service: "IoT Development",
-    quote: "We worked with them on a smart home IoT product — and their technical expertise blew us away. They understood the hardware-software interplay like pros.",
+    quote:
+      "We worked with them on a smart home IoT product — and their technical expertise blew us away. They understood the hardware-software interplay like pros.",
     client: {
       name: "Neha Rathi",
       title: "Product Manager",
-      company: "Smart Device Company"
+      company: "Smart Device Company",
     },
-    keywords: ["IoT App Development", "Embedded IoT Solutions"]
+    keywords: ["IoT App Development", "Embedded IoT Solutions"],
   },
   {
     id: 9,
     service: "Blockchain Development",
-    quote: "The team helped us build a secure, decentralized voting app for our blockchain startup. Their knowledge of smart contracts and security was spot on.",
+    quote:
+      "The team helped us build a secure, decentralized voting app for our blockchain startup. Their knowledge of smart contracts and security was spot on.",
     client: {
       name: "Jules Verne",
       title: "Founder",
-      company: "CryptoGov Inc."
+      company: "CryptoGov Inc.",
     },
-    keywords: ["Blockchain Development Services", "Smart Contract Development"]
+    keywords: ["Blockchain Development Services", "Smart Contract Development"],
   },
   {
     id: 10,
     service: "Game Development",
-    quote: "We collaborated with their game development team on a hyper-casual mobile game. The visuals, gameplay mechanics, and user engagement have been top-tier since day one.",
+    quote:
+      "We collaborated with their game development team on a hyper-casual mobile game. The visuals, gameplay mechanics, and user engagement have been top-tier since day one.",
     client: {
       name: "Rohan Mistry",
       title: "Indie Game Studio Owner",
-      company: "Game Studio"
+      company: "Game Studio",
     },
-    keywords: ["Game Development Studio", "Unity Game Developers"]
-  }
+    keywords: ["Game Development Studio", "Unity Game Developers"],
+  },
 ];
 
 // industry company serve
@@ -579,7 +603,6 @@ export const industriesCompanyServe = [
   },
 ];
 
-
 // portfolio images (web development)
 export const webPortfolio = [
   // {
@@ -590,25 +613,25 @@ export const webPortfolio = [
   // },
   {
     id: 2,
-    img: require('../assets/images/portfolio/web-development/cold-creekcap.webp'),
+    img: require("../assets/images/portfolio/web-development/cold-creekcap.webp"),
     title: "Cold Creekcap",
     link: "https://www.coldcreekcap.com",
   },
   {
     id: 3,
-    img: require('../assets/images/portfolio/web-development/think-reality.webp'),
+    img: require("../assets/images/portfolio/web-development/think-reality.webp"),
     title: "Think Reality",
     link: "https://thinkrealty.ae",
   },
   {
     id: 4,
-    img: require('../assets/images/portfolio/web-development/akash-mega-mart.webp'),
+    img: require("../assets/images/portfolio/web-development/akash-mega-mart.webp"),
     title: "Akash Mega Mart",
     link: "https://akashmegamart.com/",
   },
   {
     id: 5,
-    img: require('../assets/images/portfolio/web-development/midwam.webp'),
+    img: require("../assets/images/portfolio/web-development/midwam.webp"),
     title: "Midwam – Immersive Experience Design Company",
     link: "https://www.midwam.com/en/about",
   },
@@ -618,32 +641,32 @@ export const webPortfolio = [
 export const appPortfolio = [
   {
     id: 1,
-    img: require('../assets/images/portfolio/app-development/akash_mega_mart-app.webp'),
+    img: require("../assets/images/portfolio/app-development/akash_mega_mart-app.webp"),
     title: "Akash Mega Mart Mobile App",
     link: "https://play.google.com/store/apps/details?id=com.app.akash_mega_mart",
   },
   {
     id: 2,
-    img: require('../assets/images/portfolio/app-development/feelit_app.webp'),
+    img: require("../assets/images/portfolio/app-development/feelit_app.webp"),
     title: "FeelIt Mobile App",
     link: "https://play.google.com/store/apps/details?id=com.feelit.feelit_app",
   },
   {
     id: 3,
-    img: require('../assets/images/portfolio/app-development/klikomics.webp'),
+    img: require("../assets/images/portfolio/app-development/klikomics.webp"),
     title: "Klikomics Mobile App",
     link: "https://play.google.com/store/apps/details?id=com.klikomics.android&pcampaignid=web_share",
   },
   {
     id: 4,
-    img: require('../assets/images/portfolio/app-development/autosnap-app.webp'),
+    img: require("../assets/images/portfolio/app-development/autosnap-app.webp"),
     title: "AutoSnap Mobile App",
     link: "https://play.google.com/store/apps/details?id=com.Zigna.AutoSnap&pcampaignid=web_share",
   },
   {
     id: 5,
-    img: require('../assets/images/portfolio/app-development/rentop.webp'),
+    img: require("../assets/images/portfolio/app-development/rentop.webp"),
     title: "Rentop Bike and Car",
     link: "https://play.google.com/store/apps/details?id=com.rentop&pcampaignid=web_share",
-  },
+  },
 ];

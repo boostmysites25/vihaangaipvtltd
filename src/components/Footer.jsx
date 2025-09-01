@@ -9,7 +9,6 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedin,
-  FaTwitter,
 } from "react-icons/fa";
 import { companyDetails, services } from "../data/constant";
 
@@ -28,7 +27,11 @@ const Footer = () => {
           <div className="flex text-md">
             <ul className="flex flex-col gap-2">
               {services.map(({ id, title, link }) => (
-                <Link to={link} key={id} className="hover:text-blue-600 hover:underline transition-all duration-300">
+                <Link
+                  to={link}
+                  key={id}
+                  className="hover:text-blue-600 hover:underline transition-all duration-300"
+                >
                   {title}
                 </Link>
               ))}
@@ -46,7 +49,10 @@ const Footer = () => {
                   alt="email"
                   className="w-[1.5rem] object-contain grayscale"
                 />
-                <a href={`mailto:${companyDetails.email}`} className="hover:text-blue-600 hover:underline transition-all duration-300">
+                <a
+                  href={`mailto:${companyDetails.email}`}
+                  className="hover:text-blue-600 hover:underline transition-all duration-300"
+                >
                   <span className="font-medium">Email:</span>{" "}
                   {companyDetails.email}
                 </a>
@@ -58,7 +64,10 @@ const Footer = () => {
                   alt="phone"
                   className="w-[1.5rem] object-contain grayscale"
                 />
-                <a href={`tel:${companyDetails.phone}`} className="hover:text-blue-600 hover:underline transition-all duration-300">
+                <a
+                  href={`tel:${companyDetails.phone}`}
+                  className="hover:text-blue-600 hover:underline transition-all duration-300"
+                >
                   <span className="font-medium">Phone:</span>{" "}
                   {companyDetails.phone}
                 </a>
@@ -77,17 +86,26 @@ const Footer = () => {
               </li>
             </ul>
             <div className="flex items-center gap-4">
-              <Link className="bg-primary/10 text-primary/70 w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center text-2xl hover:bg-gradient-to-r hover:text-primary hover:-translate-y-1 transition-all duration-300">
+              <Link
+                to={companyDetails.facebook}
+                target="_blank"
+                className="bg-primary/10 text-primary/70 w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center text-2xl hover:bg-gradient-to-r hover:text-primary hover:-translate-y-1 transition-all duration-300"
+              >
                 <FaFacebookF />
               </Link>
-              <Link className="bg-primary/10 text-primary/70 w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center text-2xl hover:bg-gradient-to-r hover:text-primary hover:-translate-y-1 transition-all duration-300">
+              <Link
+                to={companyDetails.instagram}
+                target="_blank"
+                className="bg-primary/10 text-primary/70 w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center text-2xl hover:bg-gradient-to-r hover:text-primary hover:-translate-y-1 transition-all duration-300"
+              >
                 <FaInstagram />
               </Link>
-              <Link className="bg-primary/10 text-primary/70 w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center text-2xl hover:bg-gradient-to-r hover:text-primary hover:-translate-y-1 transition-all duration-300">
+              <Link
+                to={companyDetails.linkedin}
+                target="_blank"
+                className="bg-primary/10 text-primary/70 w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center text-2xl hover:bg-gradient-to-r hover:text-primary hover:-translate-y-1 transition-all duration-300"
+              >
                 <FaLinkedin />
-              </Link>
-              <Link className="bg-primary/10 text-primary/70 w-[2.5rem] h-[2.5rem] rounded-full flex justify-center items-center text-2xl hover:bg-gradient-to-r hover:text-primary hover:-translate-y-1 transition-all duration-300">
-                <FaTwitter />
               </Link>
             </div>
           </div>
