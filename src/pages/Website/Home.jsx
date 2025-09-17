@@ -124,7 +124,7 @@ const Home = () => {
                   src={line}
                   alt="Decorative line"
                   className="w-[3rem]"
-                  effect="blur"
+                  threshold={100}
                   threshold={100}
                 />
                 <h2 className="font-medium text-secondary capitalize">
@@ -210,7 +210,6 @@ const Home = () => {
                     src={item.img}
                     alt={`${item.title} industry solutions`}
                     className="w-full h-full object-cover absolute top-0 left-0 rounded group-hover:scale-110 transition-all duration-300"
-                    effect="blur"
                     threshold={100}
                   />
                   <div className="w-full h-full absolute top-0 left-0 bg-white/70 group-hover:bg-black/60 transition-all duration-300"></div>
@@ -235,7 +234,7 @@ const Home = () => {
                   src={line}
                   alt="Decorative line"
                   className="w-[3rem]"
-                  effect="blur"
+                  threshold={100}
                   threshold={100}
                 />
                 <h2 className="font-medium text-secondary">About Company</h2>
@@ -248,7 +247,7 @@ const Home = () => {
                     height="400"
                     alt="VIHAANG AI GLOBAL SERVICES PVT LTD company overview"
                     className="rounded-lg h-[20rem] sm:h-full aspect-square w-full object-cover object-right"
-                    effect="blur"
+                    threshold={100}
                     threshold={100}
                   />
                   <div className="w-full sm:w-fit sm:max-w-[18rem] text-white h-full sm:h-fit absolute md:-bottom-[5rem] bottom-0 left-0 bg-primary/70 sm:bg-primary p-5 rounded-lg">

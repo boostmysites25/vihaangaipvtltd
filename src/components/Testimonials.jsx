@@ -180,7 +180,7 @@ const Testimonials = memo(() => {
             src={users}
             alt="users"
             className="w-24 object-contain"
-            effect="blur"
+            threshold={100}
             threshold={100}
           />
           <div className="text-sm text-gray-500">

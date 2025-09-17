@@ -4,7 +4,8 @@ const urlsToCache = [
   '/static/js/bundle.js',
   '/static/css/main.css',
   '/manifest.json',
-  '/favicon.ico'
+  '/favicon.ico',
+  '/logo.png'
 ];
 
 // Install event - cache static assets

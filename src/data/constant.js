@@ -1,4 +1,4 @@
-import logoImg from "../assets/images/logo/123logo123.svg";
+import logoImg from "../assets/images/logo/logo.png";
 
 // all services
 export const services = [

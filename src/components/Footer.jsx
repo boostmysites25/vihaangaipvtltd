@@ -1,6 +1,6 @@
 import React from "react";
 import bg from "../assets/images/footer-bg.jpg";
-import logo from "../assets/images/logo/123logo123.svg";
+import logo from "../assets/images/logo/logo.png";
 import emailIcon from "../assets/images/icons/email.png";
 import phoneIcon from "../assets/images/icons/phone.png";
 import locationIcon from "../assets/images/icons/location.png";
