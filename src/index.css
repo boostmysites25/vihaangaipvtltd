@@ -10,6 +10,10 @@
   font-family: "Roboto Slab", serif;
 }
 
+.reset-html * {
+  all: revert;
+}
+
 :root {
   background: #ffffff;
   @apply text-primary;
@@ -48,7 +52,7 @@ html {
   .heading-2 {
     @apply text-[1.5rem] md:text-3xl font-medium leading-tight;
   }
-  .error-message{
+  .error-message {
     @apply text-red-700 text-sm h-4 mb-2;
   }
 }
@@ -160,4 +164,8 @@ p {
   87% {
     box-shadow: 0.2em -0.2em 0 0 currentcolor;
   }
+}
+
+.spin{
+  animation: 1s rotate linear infinite;
 }
